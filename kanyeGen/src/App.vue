@@ -1,9 +1,11 @@
 
 
 <template>
-  <div>
-    <h1>{{ quote }}</h1>
-    <h4>- Kanye West</h4>
+  <div class="kanyeBackground">
+    <div class="kanyeQuotes">
+      <h1>{{ quote }}</h1>
+      <h3>- Kanye West</h3>
+    </div>
   </div>
 </template>
 
@@ -19,10 +21,17 @@ export default {
 
       const quote = ref('')
 
-      axios.get('https://api.kanye.rest/')
-      .then(response =>{
-        quote.value = response;
-      })
+      const loadQuote = async () => {
+        const response = await axios.get('https://api.kanye.rest/')
+        quote.value = response.data.quote
+      }
+
+      loadQuote()
+
+      // axios.get('https://api.kanye.rest/')
+      // .then(response =>{
+      //   quote.value = response.data.quote
+      // })
 
       return {
         quote
@@ -32,13 +41,6 @@ export default {
 </script>
 
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style src="./assets/style.css">
+
 </style>
