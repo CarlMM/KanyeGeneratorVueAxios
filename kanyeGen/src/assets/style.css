@@ -6,19 +6,22 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-color: #464646;
-
+   
+    
 }
 
-.kanyeBackground{
-    
-    
+#app{
+    height: 100vh;
 }
 
 
 
 .kanyeQuotes{
     color: white;
+    text-align: center;
+    margin:auto;
+    position: relative;
+    padding-top: 30vh;
 
 }
 h1{
