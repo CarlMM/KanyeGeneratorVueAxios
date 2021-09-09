@@ -5,7 +5,7 @@
     <div class="kanyeQuotes">
       <h1>{{ quote }}</h1>
       <h3>- Kanye West</h3>
-      <button @click="createPost">Create Quote</button>
+      <button @click="loadQuote">Create Quote</button>
     </div>
   
 </template>
@@ -16,6 +16,8 @@
 import axios from 'axios'
 import {ref} from 'vue'
 
+import KanyeAPI from './services/KanyeAPI'
+
 
 export default {
   setup() {
@@ -23,31 +25,33 @@ export default {
       const quote = ref('')
 
       const loadQuote = async () => {
-        const response = await axios.get('https://api.kanye.rest/')
+        const response = await KanyeAPI.getQuote()
         quote.value = response.data.quote
       }
 
       loadQuote()
 
 
-      const createPost = () => {
-        axios.post('http://jsonplaceholder.typicode.com/posts',
-        JSON.stringify({
-          title:'foo',
-          body:'bar',
-          usedId:1,
-        })).then(response => {
-          console.log(response)
-          quote.value = response.data
-        })
-      }
+      // const createPost = async () => {
+      //   const response = await KanyeAPI.createPost(JSON.stringify({
+      //     title:'foo',
+      //     body:'bar',
+      //     usedId:1
+        
+      //   }))
+      //     //const result = await response.data
+
+      //     console.log(response)
+        
+      //}
       // axios.get('https://api.kanye.rest/')
       // .then(response =>{
       //   quote.value = response.data.quote
       // })
 
       return {
-        createPost,
+        loadQuote,
+        //createPost,
         quote
       }
   },
