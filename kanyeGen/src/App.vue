@@ -3,9 +3,9 @@
 <template>
   
     <div class="kanyeQuotes">
-      <h1>{{ quote }}</h1>
-      <h3>- Kanye West</h3>
-      <button @click="loadQuote">Create Quote</button>
+      <h1>"{{ quote }}"</h1>
+      <p>-Kanye West</p>
+      <button @click="loadQuote">Fetch Quote</button>
     </div>
   
 </template>
