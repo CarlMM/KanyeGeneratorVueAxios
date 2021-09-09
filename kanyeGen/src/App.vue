@@ -5,6 +5,7 @@
     <div class="kanyeQuotes">
       <h1>{{ quote }}</h1>
       <h3>- Kanye West</h3>
+      <button @click="createPost">Create Quote</button>
     </div>
   
 </template>
@@ -28,12 +29,25 @@ export default {
 
       loadQuote()
 
+
+      const createPost = () => {
+        axios.post('http://jsonplaceholder.typicode.com/posts',
+        JSON.stringify({
+          title:'foo',
+          body:'bar',
+          usedId:1,
+        })).then(response => {
+          console.log(response)
+          quote.value = response.data
+        })
+      }
       // axios.get('https://api.kanye.rest/')
       // .then(response =>{
       //   quote.value = response.data.quote
       // })
 
       return {
+        createPost,
         quote
       }
   },
