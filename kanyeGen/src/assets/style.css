@@ -21,7 +21,9 @@ body{
     text-align: center;
     margin:auto;
     position: relative;
-    padding-top: 30vh;
+    padding-top: 25vh;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
 
 }
 h1{
