@@ -1,7 +1,7 @@
 
 
 <template>
-  <div class="kanyeBackground">
+  <div class="kanyePlacement">
     <div class="kanyeQuotes">
       <h1>{{ quote }}</h1>
       <h3>- Kanye West</h3>
